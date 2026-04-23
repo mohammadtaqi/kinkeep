@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState, useEffect } from "react";
 
 function Dashboard() {
@@ -25,12 +26,32 @@ function Dashboard() {
     2: "Hey Uncle Raj! It's been a while — hope everything is great with you. Let's catch up soon!",
     3: "Hi Aunt Priya! I realised it's been 2 weeks since we spoke — really sorry about that. How are you doing? 🤗",
   };
+=======
+import { useState } from "react";
+
+const relatives = [
+  { id: 1, name: "Grandma", emoji: "👵", lastContact: "3 days ago", urgent: false },
+  { id: 2, name: "Uncle Raj", emoji: "👨", lastContact: "1 week ago", urgent: false },
+  { id: 3, name: "Aunt Priya", emoji: "👩", lastContact: "2 weeks ago", urgent: true },
+];
+
+const fakeAIMessages = {
+  1: "Hey Grandma! Just thinking of you today 💛 Hope you're feeling well and eating good food. Miss you lots!",
+  2: "Hey Uncle Raj! It's been a while — hope everything is great with you. Let's catch up soon!",
+  3: "Hi Aunt Priya! I realised it's been 2 weeks since we spoke — really sorry about that. How are you doing? 🤗",
+};
+
+function Dashboard() {
+  const [selectedContact, setSelectedContact] = useState(null);
+  const [messageSent, setMessageSent] = useState(false);
+>>>>>>> 2d4aef91986d690ac6acd775ec3cedc592f29465
 
   function handleSendClick(relative) {
     setSelectedContact(relative);
     setMessageSent(false);
   }
 
+<<<<<<< HEAD
   // Send message TO your backend
   function handleConfirmSend() {
     fetch("http://localhost:5000/message/send", {
@@ -51,6 +72,14 @@ function Dashboard() {
         }, 2000);
       })
       .catch((err) => console.error("Error sending message:", err));
+=======
+  function handleConfirmSend() {
+    setMessageSent(true);
+    setTimeout(() => {
+      setSelectedContact(null);
+      setMessageSent(false);
+    }, 2000);
+>>>>>>> 2d4aef91986d690ac6acd775ec3cedc592f29465
   }
 
   return (
@@ -63,6 +92,7 @@ function Dashboard() {
       <h1>👨‍👩‍👧 My Family</h1>
       <p style={{ color: "gray" }}>People you stay connected with</p>
 
+<<<<<<< HEAD
       {/* Loading State */}
       {loading && (
         <div style={{ textAlign: "center", marginTop: "60px", color: "gray" }}>
@@ -71,6 +101,8 @@ function Dashboard() {
         </div>
       )}
 
+=======
+>>>>>>> 2d4aef91986d690ac6acd775ec3cedc592f29465
       {/* Contact Cards */}
       <div style={{ marginTop: "30px" }}>
         {relatives.map((relative) => (
@@ -95,7 +127,11 @@ function Dashboard() {
             <button
               onClick={() => handleSendClick(relative)}
               style={{
+<<<<<<< HEAD
                 background: "#4f46e5",
+=======
+                background: relative.urgent ? "#ef4444" : "#4f46e5",
+>>>>>>> 2d4aef91986d690ac6acd775ec3cedc592f29465
                 color: "white",
                 border: "none",
                 padding: "10px 18px",
